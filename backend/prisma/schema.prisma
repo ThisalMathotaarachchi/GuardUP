@@ -1,0 +1,206 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                   String    @id @default(cuid())
+  email                String    @unique
+  passwordHash         String    @map("password_hash")
+  firstName            String    @map("first_name")
+  lastName             String    @map("last_name")
+  role                 String    @default("USER")
+
+  skillLevel           String    @default("NOT_ASSIGNED") @map("skill_level")
+  hasTakenAssessment   Boolean   @default(false) @map("has_taken_assessment")
+  assessmentScore      Int?      @map("assessment_score")
+
+  xp                   Int       @default(0)
+  level                Int       @default(1)
+  streak               Int       @default(0)
+
+  totalSimulations     Int       @default(0) @map("total_simulations")
+  phishingAccuracy     Int       @default(0) @map("phishing_accuracy")
+  ransomwareAccuracy   Int       @default(0) @map("ransomware_accuracy")
+  highestAccuracy      Int       @default(0) @map("highest_accuracy")
+  fastestCompletion    Float     @default(1) @map("fastest_completion")
+  breachesContained    Int       @default(0) @map("breaches_contained")
+  perfectScores        Int       @default(0) @map("perfect_scores")
+  zeroBreachSims       Int       @default(0) @map("zero_breach_sims")
+  speedMaster          Int       @default(0) @map("speed_master")
+
+  avatarId             String    @default("defender") @map("avatar_id")
+  preferences          Json      @default("{}")
+
+  /// Legacy-compatible map: { "beginner": true, "advanced": true, "sim-the-breach": true, ... }
+  simulationsCompleted Json      @default("{}") @map("simulations_completed")
+
+  lastSimulationAt     DateTime? @map("last_simulation_at")
+  createdAt            DateTime  @default(now()) @map("created_at")
+  updatedAt            DateTime  @updatedAt @map("updated_at")
+
+  badges                   UserBadge[]
+  simulationRuns           SimulationRun[]
+  certificationProgress    CertificationProgress[]
+  certificationCompletions CertificationCompletion[]
+  quizAttempts             QuizAttempt[]
+  auditEvents              AuditEvent[]              @relation("AuditSubject")
+  notifications            Notification[]
+
+  @@index([skillLevel])
+  @@index([createdAt])
+  @@map("users")
+}
+
+model UserBadge {
+  id          String   @id @default(cuid())
+  userId      String   @map("user_id")
+  badgeId     String   @map("badge_id")
+
+  name        String
+  description String?
+  category    String?
+  source      String?
+  icon        String?
+  tier        String?
+  context     Json?
+  earnedAt    DateTime @default(now()) @map("earned_at")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, badgeId])
+  @@index([userId])
+  @@index([badgeId])
+  @@map("user_badges")
+}
+
+model SimulationRun {
+  id           String   @id @default(cuid())
+  userId       String   @map("user_id")
+  simulationId String   @map("simulation_id")
+
+  score        Int
+  passed       Boolean
+  xpEarned     Int      @default(0) @map("xp_earned")
+
+  accuracy     Int?
+  breaches     Int?
+  totalTime    Int?     @map("total_time")
+  hintsUsed    Int?     @map("hints_used")
+  behaviorData Json?    @map("behavior_data")
+  results      Json?
+
+  completedAt  DateTime @default(now()) @map("completed_at")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, completedAt(sort: Desc)])
+  @@index([simulationId])
+  @@map("simulation_runs")
+}
+
+model CertificationProgress {
+  id              String    @id @default(cuid())
+  userId          String    @map("user_id")
+  certificationId String    @map("certification_id")
+
+  startedAt       DateTime? @map("started_at")
+  completedAt     DateTime? @map("completed_at")
+  createdAt       DateTime  @default(now()) @map("created_at")
+  updatedAt       DateTime  @updatedAt @map("updated_at")
+
+  user       User                              @relation(fields: [userId], references: [id], onDelete: Cascade)
+  activities CertificationActivityCompletion[]
+
+  @@unique([userId, certificationId])
+  @@index([userId])
+  @@map("certification_progress")
+}
+
+model CertificationActivityCompletion {
+  id          String   @id @default(cuid())
+  progressId  String   @map("progress_id")
+  activityId  String   @map("activity_id")
+  completedAt DateTime @default(now()) @map("completed_at")
+
+  progress CertificationProgress @relation(fields: [progressId], references: [id], onDelete: Cascade)
+
+  @@unique([progressId, activityId])
+  @@index([activityId])
+  @@map("certification_activity_completions")
+}
+
+model CertificationCompletion {
+  id              String   @id @default(cuid())
+  userId          String   @map("user_id")
+  certificationId String   @map("certification_id")
+  completedAt     DateTime @default(now()) @map("completed_at")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, certificationId])
+  @@index([userId])
+  @@map("certification_completions")
+}
+
+model QuizAttempt {
+  id          String   @id @default(cuid())
+  userId      String   @map("user_id")
+  quizId      String   @map("quiz_id")
+
+  percentage  Int
+  correct     Int?
+  incorrect   Int?
+  total       Int?
+  passed      Boolean  @default(false)
+  answers     Json?
+
+  completedAt DateTime @default(now()) @map("completed_at")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, quizId])
+  @@index([userId])
+  @@index([quizId])
+  @@map("quiz_attempts")
+}
+
+model AuditEvent {
+  id        String   @id @default(cuid())
+  type      String
+  actorType String   @map("actor_type")
+  userId    String?  @map("user_id")
+  userEmail String?  @map("user_email")
+  summary   String?
+  payload   Json?
+
+  createdAt DateTime @default(now()) @map("created_at")
+
+  user User? @relation("AuditSubject", fields: [userId], references: [id], onDelete: SetNull)
+
+  @@index([type])
+  @@index([createdAt(sort: Desc)])
+  @@index([userId])
+  @@map("audit_events")
+}
+
+model Notification {
+  id        String   @id @default(cuid())
+  userId    String   @map("user_id")
+  type      String
+  title     String
+  message   String
+  read      Boolean  @default(false)
+  createdAt DateTime @default(now()) @map("created_at")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([userId, read])
+  @@index([createdAt(sort: Desc)])
+  @@map("notifications")
+}

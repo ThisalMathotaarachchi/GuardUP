@@ -1,0 +1,78 @@
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+  /* GuardUP monochrome black + white foundation */
+  --color-bg-deep: #050505;
+  --color-bg-base: #0a0a0a;
+  --color-bg-elevated: #111111;
+  --color-background: #050505;
+  --color-background-alt: #0a0a0a;
+
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #a1a1aa;
+  --color-text-muted: #71717a;
+  --color-text-light: #ffffff;
+  --color-text-muted-dark: #a1a1aa;
+
+  --color-primary: #ffffff;
+  --color-muted: #71717a;
+  --color-charcoal: #111111;
+
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-border-emphasis: rgba(255, 255, 255, 0.14);
+  --color-border-subtle: rgba(255, 255, 255, 0.06);
+
+  /* Single restrained accent — neutral white/metallic */
+  --color-accent: #ffffff;
+  --color-accent-deep: #e4e4e7;
+  --color-accent-light: #fafafa;
+  --color-accent-muted: rgba(255, 255, 255, 0.08);
+  --color-accent-border: rgba(255, 255, 255, 0.14);
+  --color-accent-text: #ffffff;
+  --color-accent-soft: #d4d4d8;
+
+  --color-secondary: #a1a1aa;
+  --color-secondary-muted: rgba(255, 255, 255, 0.06);
+  --color-secondary-text: #a1a1aa;
+
+  --color-success: #22c55e;
+  --color-danger: #ef4444;
+  --color-warning: #eab308;
+  --color-info: #a1a1aa;
+  --color-logo-gold: #eab308;
+
+  --color-surface: rgba(255, 255, 255, 0.055);
+  --color-card: #111111;
+  --color-card-dark: #050505;
+
+  --surface-primary: rgba(255, 255, 255, 0.055);
+  --surface-secondary: rgba(255, 255, 255, 0.04);
+  --surface-border: rgba(255, 255, 255, 0.1);
+  --surface-border-subtle: rgba(255, 255, 255, 0.08);
+
+  --radius-card: 14px;
+  --radius-card-lg: 16px;
+  --radius-card-xl: 20px;
+  --app-nav-height: 3.75rem;
+
+  --shadow-surface: 0 20px 60px rgba(0, 0, 0, 0.25);
+  --shadow-surface-hover: 0 24px 64px rgba(0, 0, 0, 0.35);
+  --shadow-glass: 0 20px 60px rgba(0, 0, 0, 0.25);
+  --shadow-glass-elevated: 0 20px 60px rgba(0, 0, 0, 0.25);
+
+  --glass-bg: rgba(255, 255, 255, 0.055);
+  --glass-bg-elevated: rgba(255, 255, 255, 0.07);
+  --glass-blur: blur(20px) saturate(120%);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-border-emphasis: rgba(255, 255, 255, 0.14);
+  --glass-padding: 1.5rem;
+  --glass-padding-lg: 2rem;
+  --glass-radius: 16px;
+
+  --color-success-text: #22c55e;
+  --color-danger-text: #ef4444;
+  --color-warning-text: #eab308;
+  --color-info-text: #a1a1aa;
+  --color-gold-text: #eab308;
+}

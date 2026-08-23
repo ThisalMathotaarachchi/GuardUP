@@ -1,0 +1,385 @@
+/* ── Theme resolution (class on html: .dark | .light) ── */
+
+html.dark {
+  color-scheme: dark;
+}
+
+html.light {
+  color-scheme: light;
+
+  /* Core palette */
+  --color-bg-deep: #f4f4f5;
+  --color-bg-base: #fafafa;
+  --color-bg-elevated: #ffffff;
+  --color-background: #fafafa;
+  --color-background-alt: #f4f4f5;
+
+  --color-text-primary: #18181b;
+  --color-text-secondary: #52525b;
+  --color-text-muted: #71717a;
+  --color-text-light: #18181b;
+  --color-text-muted-dark: #52525b;
+
+  --color-primary: #18181b;
+  --color-muted: #71717a;
+  --color-charcoal: #e4e4e7;
+
+  --color-border: rgba(0, 0, 0, 0.08);
+  --color-border-emphasis: rgba(0, 0, 0, 0.14);
+  --color-border-subtle: rgba(0, 0, 0, 0.06);
+
+  --color-accent: #18181b;
+  --color-accent-deep: #27272a;
+  --color-accent-light: #fafafa;
+  --color-accent-muted: rgba(0, 0, 0, 0.05);
+  --color-accent-border: rgba(0, 0, 0, 0.12);
+  --color-accent-text: #18181b;
+  --color-accent-soft: #52525b;
+
+  --color-secondary: #52525b;
+  --color-secondary-muted: rgba(0, 0, 0, 0.04);
+  --color-secondary-text: #52525b;
+
+  --color-surface: rgba(255, 255, 255, 0.95);
+  --color-card: #ffffff;
+  --color-card-dark: #f4f4f5;
+
+  --surface-primary: rgba(255, 255, 255, 0.98);
+  --surface-secondary: rgba(0, 0, 0, 0.03);
+  --surface-border: rgba(0, 0, 0, 0.1);
+  --surface-border-subtle: rgba(0, 0, 0, 0.06);
+
+  --shadow-surface: 0 12px 40px rgba(0, 0, 0, 0.08);
+  --shadow-surface-hover: 0 16px 48px rgba(0, 0, 0, 0.12);
+  --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.06);
+  --shadow-glass-elevated: 0 12px 40px rgba(0, 0, 0, 0.1);
+
+  --glass-bg: rgba(255, 255, 255, 0.96);
+  --glass-bg-elevated: #ffffff;
+  --glass-border: rgba(0, 0, 0, 0.08);
+  --glass-border-emphasis: rgba(0, 0, 0, 0.12);
+
+  --gu-surface-hover: rgba(0, 0, 0, 0.04);
+  --gu-surface-muted: rgba(0, 0, 0, 0.03);
+  --gu-surface-inset: rgba(0, 0, 0, 0.05);
+  --gu-surface-chrome: rgba(255, 255, 255, 0.95);
+  --gu-surface-overlay: rgba(15, 23, 42, 0.45);
+  --gu-focus-ring: rgba(0, 0, 0, 0.08);
+
+  /* Security atmosphere — light theme contrast */
+  --gu-atmosphere-glow-a: rgba(6, 182, 212, 0.14);
+  --gu-atmosphere-glow-b: rgba(39, 39, 42, 0.07);
+  --gu-atmosphere-symbol-color: rgba(39, 39, 42, 0.68);
+  --gu-atmosphere-symbol-glow: rgba(6, 182, 212, 0.36);
+  --gu-atmosphere-symbol-glow-b: rgba(6, 182, 212, 0.3);
+  --gu-atmosphere-symbol-glow-c: rgba(6, 182, 212, 0.4);
+  --gu-atmosphere-symbol-glow-reduced: rgba(6, 182, 212, 0.24);
+  --gu-atmosphere-particle: rgba(82, 82, 91, 0.36);
+  --gu-atmosphere-particle-strong: rgba(82, 82, 91, 0.42);
+  --gu-atmosphere-svg-glow: #06b6d4;
+  --gu-atmosphere-svg-glow-start: 0.11;
+  --gu-atmosphere-network-color: #52525b;
+  --gu-atmosphere-network-muted: #71717a;
+  --gu-atmosphere-network-opacity: 0.48;
+  --gu-atmosphere-geometry-color: #71717a;
+  --gu-atmosphere-geometry-opacity: 0.32;
+  --gu-atmosphere-svg-opacity: 0.62;
+  --gu-atmosphere-svg-opacity-dashboard: 0.54;
+  --gu-atmosphere-svg-opacity-reading: 0.48;
+
+  --gu-atmosphere-layer-opacity-factor: 1;
+}
+
+html.dark {
+  --gu-surface-hover: rgba(255, 255, 255, 0.06);
+  --gu-surface-muted: rgba(255, 255, 255, 0.04);
+  --gu-surface-inset: rgba(255, 255, 255, 0.06);
+  --gu-surface-chrome: rgba(10, 10, 10, 0.95);
+  --gu-surface-overlay: rgba(8, 11, 18, 0.65);
+  --gu-focus-ring: rgba(255, 255, 255, 0.06);
+
+  /* Security atmosphere — dark theme (~25% stronger glow) */
+  --gu-atmosphere-layer-opacity-factor: 1.25;
+  --gu-atmosphere-glow-a: rgba(255, 255, 255, 0.10);
+  --gu-atmosphere-glow-b: rgba(255, 255, 255, 0.07);
+  --gu-atmosphere-symbol-color: rgba(255, 255, 255, 0.92);
+  --gu-atmosphere-symbol-glow: rgba(255, 255, 255, 0.35);
+  --gu-atmosphere-symbol-glow-b: rgba(255, 255, 255, 0.30);
+  --gu-atmosphere-symbol-glow-c: rgba(255, 255, 255, 0.37);
+  --gu-atmosphere-symbol-glow-reduced: rgba(255, 255, 255, 0.20);
+  --gu-atmosphere-particle: rgba(255, 255, 255, 0.30);
+  --gu-atmosphere-particle-strong: rgba(255, 255, 255, 0.37);
+  --gu-atmosphere-svg-glow: #ffffff;
+  --gu-atmosphere-svg-glow-start: 0.075;
+  --gu-atmosphere-network-color: #ffffff;
+  --gu-atmosphere-network-muted: #71717a;
+  --gu-atmosphere-network-opacity: 0.42;
+  --gu-atmosphere-geometry-color: #ffffff;
+  --gu-atmosphere-geometry-opacity: 0.25;
+  --gu-atmosphere-svg-opacity: 0.62;
+  --gu-atmosphere-svg-opacity-dashboard: 0.55;
+  --gu-atmosphere-svg-opacity-reading: 0.55;
+}
+
+/* ── Shared form controls ── */
+
+select,
+textarea,
+input:not([type='checkbox']):not([type='radio']) {
+  color-scheme: inherit;
+}
+
+select option {
+  background-color: var(--color-bg-elevated);
+  color: var(--color-text-primary);
+}
+
+html.light .input-light {
+  background: #ffffff;
+  color: var(--color-text-primary);
+  border-color: var(--color-border-emphasis);
+}
+
+html.light .input-light:focus {
+  box-shadow: 0 0 0 3px var(--gu-focus-ring);
+}
+
+/* ── Buttons ── */
+
+html.light .btn-primary {
+  background-color: #18181b;
+  color: #ffffff;
+}
+
+html.light .btn-primary:hover {
+  background-color: #27272a;
+}
+
+html.light .btn-secondary {
+  background: #ffffff;
+  border-color: var(--color-border-emphasis);
+}
+
+html.light .btn-secondary:hover {
+  background: var(--gu-surface-hover);
+  border-color: rgba(0, 0, 0, 0.18);
+}
+
+/* ── Surfaces & chips ── */
+
+html.light .surface-card-inner,
+html.light .badge-neutral,
+html.light .badge-type,
+html.light .badge-type-light,
+html.light .settings-icon-box,
+html.light .cert-card__badge-preview,
+html.light .cert-card__prereq {
+  background: var(--gu-surface-muted);
+  border-color: var(--color-border);
+}
+
+html.light .tag-chip,
+html.light .settings-row:hover,
+html.light .card-inner {
+  background: var(--gu-surface-muted);
+  border-color: var(--color-border);
+}
+
+html.light .progress-track {
+  background: var(--gu-surface-inset);
+}
+
+html.light .progress-fill,
+html.light .cert-card__progress-fill {
+  background: #18181b;
+}
+
+html.light .gu-sidebar__link--active {
+  box-shadow: inset 3px 0 0 rgba(0, 0, 0, 0.35);
+}
+
+/* ── Navigation & chrome ── */
+
+html.light .gu-navbar__inner,
+html.light .gu-navbar__menu-btn,
+html.light .gu-navbar__link:hover,
+html.light .admin-mobile-toggle {
+  background: var(--gu-surface-chrome);
+  border-color: var(--color-border);
+}
+
+html.light .gu-navbar__menu-btn:hover,
+html.light .admin-mobile-toggle:hover {
+  background: #ffffff;
+  border-color: var(--color-border-emphasis);
+}
+
+html.light .gu-navbar__dropdown,
+html.light .dashboard-shell__sidebar,
+html.light .admin-topbar {
+  background: var(--gu-surface-chrome);
+  border-color: var(--color-border);
+}
+
+html.light .gu-navbar__dropdown-item:hover,
+html.light .gu-sidebar__link:hover,
+html.light .gu-sidebar__collapse-btn:hover,
+html.light .admin-sidebar__logout:hover,
+html.light .admin-sidebar__back-link:hover,
+html.light .admin-mini-list__item--link:hover {
+  background: var(--gu-surface-hover);
+}
+
+html.dark .gu-navbar__dropdown-item:hover {
+  background: var(--gu-surface-hover);
+}
+
+html.light .gu-navbar__notif-item--unread {
+  background: color-mix(in srgb, var(--color-accent) 10%, var(--gu-surface-chrome));
+}
+
+html.dark .gu-navbar__notif-item--unread {
+  background: color-mix(in srgb, var(--color-accent) 12%, transparent);
+}
+
+html.light .gu-sidebar__separator,
+html.light .dashboard-shell__sidebar-toggle {
+  border-color: var(--color-border-subtle);
+}
+
+html.light .gu-sidebar__link:hover,
+html.light .gu-sidebar__collapse-btn:hover {
+  color: var(--color-text-primary);
+}
+
+/* ── Cards with hardcoded dark glass ── */
+
+html.light .cert-card {
+  background: #ffffff;
+  border-color: var(--color-border);
+}
+
+html.light .cert-card:hover {
+  border-color: var(--color-border-emphasis);
+}
+
+html.light .cert-card__accent {
+  background: linear-gradient(90deg, rgba(6, 182, 212, 0.55), rgba(6, 182, 212, 0.12));
+}
+
+html.light .cert-detail-next {
+  background: #ffffff;
+  border-color: var(--color-border);
+}
+
+html.light .lp-roadmap__card--current,
+html.light .lp-module-card--current {
+  border-color: rgba(0, 0, 0, 0.14);
+}
+
+/* ── Modals ── */
+
+html.light .gu-modal-overlay {
+  background: var(--gu-surface-overlay);
+}
+
+html.light .gu-modal {
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-surface-hover);
+}
+
+/* ── Logo ── */
+
+html.light .gu-logo__icon-box {
+  background: rgba(0, 0, 0, 0.04);
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+html.light .gu-logo__glyph,
+html.light .gu-logo__wordmark {
+  color: var(--color-text-primary);
+}
+
+/* ── Settings rows ── */
+
+html.light .settings-row,
+html.light .border-\[rgba\(255\,255\,255\,0\.08\)\] {
+  border-color: var(--color-border-subtle) !important;
+}
+
+/* ── Resource / reading surfaces ── */
+
+html.light .resource-page__toc,
+html.light .resource-page__video-wrap,
+html.light .resource-related__link {
+  background: #ffffff;
+  border-color: var(--color-border);
+}
+
+html.light .resource-callout {
+  background: var(--gu-surface-muted);
+  border-color: var(--color-border);
+}
+
+/* ── Badge difficulty chips (light theme variants) ── */
+
+html.light .badge-easy-light {
+  background: rgba(34, 197, 94, 0.12);
+  color: #15803d;
+  border-color: rgba(34, 197, 94, 0.25);
+}
+
+html.light .badge-medium-light {
+  background: rgba(234, 179, 8, 0.14);
+  color: #a16207;
+  border-color: rgba(234, 179, 8, 0.28);
+}
+
+html.light .badge-hard-light {
+  background: rgba(239, 68, 68, 0.12);
+  color: #b91c1c;
+  border-color: rgba(239, 68, 68, 0.25);
+}
+
+/* ── Scrollbar & selection ── */
+
+html.light ::selection {
+  background: rgba(24, 24, 27, 0.14);
+  color: var(--color-text-primary);
+}
+
+html.light ::-webkit-scrollbar-track {
+  background: #ececef;
+}
+
+html.light ::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.22);
+}
+
+html.light ::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.32);
+}
+
+/* ── Page shell atmosphere (soften on light) ── */
+
+html.light .page-shell--default::before,
+html.light .page-shell--dashboard::before,
+html.light .page-shell--reading::before,
+html.light .page-shell--auth::before {
+  opacity: 0.45;
+}
+
+/* ── Security atmosphere visibility (light theme) ── */
+
+html.light .gu-atmosphere__svg {
+  opacity: var(--gu-atmosphere-svg-opacity);
+}
+
+html.light .gu-atmosphere--dashboard .gu-atmosphere__svg {
+  opacity: var(--gu-atmosphere-svg-opacity-dashboard);
+}
+
+html.light .gu-atmosphere--reading .gu-atmosphere__svg {
+  opacity: var(--gu-atmosphere-svg-opacity-reading);
+}
